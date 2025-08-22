@@ -1592,14 +1592,13 @@
 .message-quote .sender {
     font-weight: 600;
     color: var(--theme-primary);
-}
-.message-quote .content {
+}.message-quote .content {
     color: #555;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    white-space: normal; /* Allows the text to wrap naturally */
+    word-wrap: break-word; /* Ensures long words don't overflow */
     display: block;
-}
+    /* The overflow and text-overflow properties are no longer needed */
+        }
 
 /* 点击引用框跳转后，目标消息的高亮效果 */
 .message-wrapper.highlighted .message {
