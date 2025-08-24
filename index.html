@@ -5696,7 +5696,7 @@ async function generateAiResponse(contact, history, customSystemPrompt, forceDia
         
         // --- 【视频通话新增】 ---
         if (state.activeCall && contact && state.activeCall.contactId === contact.id) {
-             systemContent += `\n\n[！！！当前情境：视频通话！！！]\n你现在正在和用户进行一场视频通话。你的所有感官和回应都必须基于这个场景。必须同时穿插使用神态/动作(*...*)、内心活动({...})和对话(“...”)这三种表达方式来描绘通话画面。禁止使用如 [sticker:] 等常规聊天指令。你可以使用的通话专用指令只有：[action:hang_up]。`;
+             systemContent += `\n\n[！！！当前情境：视频通话！！！]\n你现在正在和用户进行一场视频通话。你必须全程使用中文回复。你的所有感官和回应都必须基于这个场景。必须同时穿插使用神态/动作(*...*)、内心活动({...})和对话(“...”)这三种表达方式来描绘通话画面。禁止使用如 [sticker:] 等常规聊天指令。你可以使用的通话专用指令只有：[action:hang_up]。`;
         }
 
         const dynamicInstructions = history.filter(msg => msg.sender === 'system_instruction').map(msg => msg.content).join('\n');
