@@ -6978,9 +6978,9 @@ function addWheelOptionInput(text = '', weight = 1) {
             } else {
                 const messages = conversation.split('\n').filter(line => line.trim() !== '');
                 for (const line of messages) {
-                    // ========================= 【最终版】通话识别逻辑 =========================
-                // 新的正则表达式检查一句话里是否【同时包含】通话相关的“动作”和“对象”，不关心顺序
-                const ultimateCallTriggerRegex = /((打|拨|呼叫|通话).*?(电话|视频))|((电话|视频).*?(打|拨|呼叫|通话))|\[action:start_video_call\]/i;
+                    // ========================= 【究极版】通话识别逻辑 =========================
+                // 全新正则表达式：1. 兼容繁体字 2. 不关心关键词顺序 3. 识别更多关键词和命令格式
+                const ultimateCallTriggerRegex = /(?=.*(电话|電話|视频|視頻|手机|手機|通话|通話|来电|來電))(?=.*(打|拨|撥|呼叫|接|来|來|到|马上|馬上|這就|准备|準備))|\[action:start_video_call\]|\[incoming_call:.*?\]/i;
 
                 // 使用新的正则表达式进行判断
                 if (ultimateCallTriggerRegex.test(line)) {
